@@ -1,0 +1,44 @@
+<!-- signup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - MindCare</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</head>
+<body class="login-page">
+
+  <div class="login-container fade-in-up">
+    <h2>Create Your <span class="highlight">MindCare</span> Account</h2>
+
+    <?php if (isset($_GET['error'])): ?>
+  <p style="color: red; text-align: center;"><?php echo $_GET['error']; ?></p>
+<?php endif; ?>
+
+    <form class="login-form" action="signup.php" method="POST">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required />
+
+      <label for="confirm">Confirm Password</label>
+      <input type="password" id="confirm" name="confirm" required />
+
+      <button type="submit" class="cta-button"><span>Sign Up</span></button>
+    </form>
+
+    <p class="footer-text">Already have an account? <a href="login.html" class="signup-link">Login</a></p>
+  </div>
+
+</body>
+</html>

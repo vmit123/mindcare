@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MindCare | Your Advice</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comfortaa', cursive;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      transition: background 1s ease;
+    }
+
+    .emoji {
+      font-size: 5rem;
+      animation: popUp 0.5s ease-out forwards;
+    }
+
+    @keyframes popUp {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .advice-box {
+      max-width: 600px;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+    }
+
+    p#adviceText {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-top: 1rem;
+    }
+
+    .back-button {
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-family: 'Comfortaa', cursive;
+      background-color: #ffb703 ;
+      color: #333;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    .back-button:hover {
+    font-family: 'Comfortaa', cursive;
+      background-color: #ffc532;
+      transform: scale(1.05);
+    }
+    span{
+        color: #ffb703;
+    }
+  </style>
+</head>
+<body id="adviceBody">
+  <div class="advice-box">
+    <div class="emoji" id="moodEmoji">🙂</div>
+    <h1>Your Personalized <span>Advice</span></h1>
+    <p id="adviceText">Loading your message...</p>
+    <button class="back-button" onclick="window.location.href='mood.html'">← Track Another Mood</button>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const mood = params.get('mood');
+    const emoji = document.getElementById('moodEmoji');
+    const adviceText = document.getElementById('adviceText');
+    const body = document.getElementById('adviceBody');
+
+    const moodData = {
+      happy: {
+        emoji: '😊',
+        bg: 'linear-gradient(to right, #fceabb, #f8b500)',
+        advice: 'It’s great to feel happy! Use this moment to appreciate the little things and spread joy to someone else. A cheerful mindset boosts your resilience and creates a ripple effect of positivity.'
+      },
+      sad: {
+        emoji: '😢',
+        bg: 'linear-gradient(to right, #536976, #292E49)',
+        advice: 'Sadness is part of healing. Allow yourself to feel, cry, and talk about it. Reach out to someone, write down your thoughts, or listen to calming music. You’re not alone, and this feeling will pass.'
+      },
+      anxious: {
+        emoji: '😰',
+        bg: 'linear-gradient(to right, #a18cd1, #fbc2eb)',
+        advice: 'Anxiety can make your thoughts race. Try grounding exercises: breathe deeply, name five things you see, and focus on what you can control. Be gentle with yourself—you’re doing your best.'
+      },
+      angry: {
+        emoji: '😠',
+        bg: 'linear-gradient(to right, #ff4e50, #f9d423)',
+        advice: 'Anger is a sign something matters. Let it out in a healthy way—talk, write, or move. Then, reflect on what triggered it and how to address it calmly. Your power is in your response.'
+      },
+      calm: {
+        emoji: '😌',
+        bg: 'linear-gradient(to right, #dce35b, #45b649)',
+        advice: 'Enjoy this state of calmness. Use it to reflect, plan, or simply rest. Engage in mindfulness or nature—whatever helps you stay centered and grateful. You’ve earned your peace.'
+      },
+      tired: {
+        emoji: '😴',
+        bg: 'linear-gradient(to right, #757F9A, #D7DDE8)',
+        advice: 'Your body is asking for rest. Listen to it. Take a nap, go to bed early, or take a break from screens. Recharging is not a weakness—it’s a form of strength and self-love.'
+      },
+      confident: {
+        emoji: '😎',
+        bg: 'linear-gradient(to right, #00c6ff, #0072ff)',
+        advice: 'Confidence is a superpower. Walk tall, speak with clarity, and chase your goals. Believe in your strengths, and don’t be afraid to celebrate your wins—you’ve earned this energy!'
+      },
+      reflective: {
+        emoji: '🤔',
+        bg: 'linear-gradient(to right, #C9D6FF, #E2E2E2)',
+        advice: 'Reflection helps you grow. Journal your thoughts, review your progress, and set intentions. Clarity comes when you pause and listen to yourself deeply.'
+      }
+    };
+
+    if (moodData[mood]) {
+      emoji.innerText = moodData[mood].emoji;
+      adviceText.innerText = moodData[mood].advice;
+      body.style.background = moodData[mood].bg;
+    } else {
+      adviceText.innerText = "We're here to support you — please try tracking your mood again.";
+    }
+  </script>
+</body>
+</html>

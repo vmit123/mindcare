@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MindCare | Mood Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Comfortaa&display=swap" rel="stylesheet">
+</head>
+<body id="moodBody">
+  <!-- Navbar (reuse updated one) -->
+  <header>
+    <nav class="new-navbar">
+      <div class="navbar-logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063827.png" alt="logo">
+        <span>MindCare</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mood.html">Mood Tracker</a></li>
+        <li><a href="therapists.html">Our Therapists</a></li>
+        <li><a href="booking.html">Book Therapy</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="content fade-in-up">
+    <h1>Track Your Mood</h1>
+    <p style="text-align: center; margin-bottom: 2rem;">Log your emotions and take a step toward better self-awareness.</p>
+
+    <form id="moodForm" class="form-box colorful-form">
+      
+
+      <div class="mood-buttons">
+        <button class="mood-btn" data-mood="happy">😊<br>Happy</button>
+        <button class="mood-btn" data-mood="sad">😢<br>Sad</button>
+        <button class="mood-btn" data-mood="anxious">😰<br>Anxious</button>
+        <button class="mood-btn" data-mood="angry">😠<br>Angry</button>
+        <button class="mood-btn" data-mood="calm">😌<br>Calm</button>
+        <button class="mood-btn" data-mood="tired">😴<br>Tired</button>
+        <button class="mood-btn" data-mood="confident">😎<br>Confident</button>
+        <button class="mood-btn" data-mood="reflective">🤔<br>Reflective</button>
+      </div>
+      <p id="moodMessage"></p>
+
+      <label for="date">📅 Date:</label>
+      <input type="date" id="date" name="date" required>
+
+      
+      
+      
+
+  <label for="notes">Notes (optional):</label>
+      <textarea id="notes" name="notes" rows="4" placeholder="Write your thoughts..."></textarea>
+
+      <button type="submit" class="cta-button"><span>Submit</span></button>
+
+    </form>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h3>🧠 MindCare</h3>
+        <p>Your personal mental health tracker and therapy booking assistant. Empower your mind, one step at a time.</p>
+      </div>
+  
+      <div class="footer-section contact">
+        <h4>📞 Contact Us</h4>
+        <p><i class="fas fa-envelope"></i> mindcare@gmail.com</p>
+        <p><i class="fas fa-phone"></i> +91 8439896162</p>
+      </div>
+  
+      <div class="footer-section social">
+        <h4>🌐 Follow Us</h4>
+        <a href="https://www.instagram.com/yourstanishk/"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/tanishkrwt"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/tanishkrwt/"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 MindCare. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.mood-btn').forEach(btn => {
+  btn.addEventListener('click', function () {
+    const mood = this.dataset.mood;
+    const body = document.getElementById('moodBody');
+    const message = document.getElementById('moodMessage');
+
+    // Remove 'active' from all buttons
+    document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('active'));
+    // Add 'active' to the clicked one
+    this.classList.add('active');
+
+    switch(mood) {
+      case "happy":
+        body.style.background = "linear-gradient(to right, #fceabb, #f8b500)";
+        body.style.fontFamily = "'Comfortaa', cursive";
+        message.innerText = "Stay joyful and keep spreading that sunshine!";
+        break;
+      case "sad":
+        body.style.background = "linear-gradient(to right, #536976, #292E49)";
+        body.style.fontFamily = "'Comfortaa', cursive";
+        message.innerText = "It’s okay to feel down. We’re here with you 💙";
+        break;
+      case "anxious":
+        body.style.background = "linear-gradient(to right, #a18cd1, #fbc2eb)";
+        body.style.fontFamily = "'Comfortaa', cursive";
+        message.innerText = "Take a deep breath. You’re doing great.";
+        break;
+      case "angry":
+        body.style.background = "linear-gradient(to right, #ff4e50, #f9d423)";
+        body.style.fontFamily = "'Comfortaa', cursive";
+        message.innerText = "Let it out calmly. You’re stronger than your anger.";
+        break;
+      case "calm":
+        body.style.background = "linear-gradient(to right, #dce35b, #45b649)";
+        body.style.fontFamily = "'Comfortaa', cursive";
+        message.innerText = "Peaceful and balanced — keep it up 🌿";
+        break;
+      case "tired":
+        body.style.background = "linear-gradient(to right, #757F9A, #D7DDE8)";
+        body.style.fontFamily = "'Comfortaa', cursive";
+        message.innerText = "Time to rest and recharge — you deserve it 😴";
+        break;
+      case "confident":
+        body.style.background = "linear-gradient(to right, #00c6ff, #0072ff)";
+        body.style.fontFamily = "'Comfortaa', cursive";
+        message.innerText = "You’ve got this! Keep owning your power 💪";
+        break;
+      case "reflective":
+        body.style.background = "linear-gradient(to right, #C9D6FF, #E2E2E2)";
+        body.style.fontFamily = "'Comfortaa', cursive";
+        message.innerText = "Taking a step back helps move forward 💭";
+        break;
+      default:
+        body.style.background = "linear-gradient(to right, #1f1c2c, #928dab)";
+        message.innerText = "";
+    }
+
+  });
+});
+
+document.getElementById("moodForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  
+  const selectedMood = document.querySelector(".mood-btn.active");
+  if (!selectedMood) {
+    alert("Please select your mood before submitting.");
+    return;
+  }
+
+  const mood = selectedMood.dataset.mood;
+  const notes = document.getElementById("notes").value;
+  const date = document.getElementById("date").value;
+
+  const url = `advice.html?mood=${mood}&notes=${encodeURIComponent(notes)}&date=${date}`;
+  window.open(url, "_blank");
+});
+
+  </script>
+</body>
+</html>

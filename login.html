@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - MindCare</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</head>
+<body class="login-page">
+
+  <div class="login-container fade-in-up">
+    <h2>Welcome Back to <span class="highlight">MindCare</span></h2>
+    <p class="subtitle">Please log in to continue your wellness journey</p>
+
+    <form class="login-form" action="login.php" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required />
+
+      <button type="submit" class="cta-button"><span>Login</span></button>
+    </form>
+
+    <p class="footer-text">Don't have an account? <a href="signup.html">Sign Up</a></p>
+  </div>
+
+</body>
+</html>
